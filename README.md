@@ -7,7 +7,7 @@
 🔁 Réafficher le bouton **Maps** quand il est absent (retiré suite a une loi de l'UE).  
 🤖 Ajouter d'un bouton **ChatGPT** pour lancer une conversation avec la requête dans la barre de recherche.  
 🔍 Accès largement simplifié aux **opérateurs de recherche avancés**.  
-🧩 Création de **catégories personnalisables** : Wikipédia, Orthographe, Tendances... 
+🧩 Création de **catégories personnalisables** : Wikipédia, Orthographe, Tendances...  
 🚫 Bloquer automatiquement les **résultats sponsorisés** de Google.
 
 ## ⚙️ Installation pour les développeurs
