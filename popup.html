@@ -5,49 +5,27 @@
   <title>Google Search+</title>
   <link rel="stylesheet" href="popup.css">
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <img src="icons/icon48.png" alt="Logo" class="logo">
-      <h1>Google Search+</h1>
-    </div>
-
-    <hr class="separator">
-
-    <div id="optionsList">
-
-      <!-- OPTIONS GÉNÉRALES -->
-      <div class="option" data-search="maps">
-        <img src="icons/maps.png" class="option-icon" alt="">
-        <label><input type="checkbox" id="toggleMaps"> Réactiver Maps</label>
-      </div>
-      <div class="option" data-search="sponsor sponsorisé bloquer résultats">
-        <img src="icons/sponsor.png" class="option-icon" alt="">
-        <label><input type="checkbox" id="toggleSponsors"> Bloquer les résultats sponsorisés</label>
-      </div>
-      <div class="option" data-search="chatgpt chat gpt conversation">
-        <img src="icons/chatgpt.png" class="option-icon" alt="">
-        <label><input type="checkbox" id="toggleChatGPT"> Bouton ChatGPT</label>
-      </div>
-      <div class="option" data-search="opérateur opérateurs avancés recherche">
-        <img src="icons/operators.png" class="option-icon" alt="">
-        <label><input type="checkbox" id="toggleOperators"> Opérateurs avancés</label>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="icons/icon48.png" alt="Logo" class="logo">
+        <h1>Google Search+</h1>
       </div>
 
-    <hr class="separator-small">
+      <p>Extension active. Fonctionnalités disponibles :</p>
 
-    <!-- OPTIONS PERSONNALISEES -->
-    <h2 class="subheader">Catégories personnalisées</h2>
-    <div class="option" data-search="orthographe">
-    <img src="icons/orthographe.png" class="option-icon" alt="">
-    <label><input type="checkbox" id="toggleOrtho"> Orthographe</label>
-    </div>
-    <div class="option" data-search="tendances">
-    <img src="icons/tendances.png" class="option-icon" alt="">
-    <label><input type="checkbox" id="toggleTrends"> Tendances</label>
-    </div>
+      <hr class="separator">
 
-    </div> <!-- end optionsList -->
-  </div> <!-- end container -->
-</body>
+      <div id="optionsList">
+
+        <div class="option"><img src="icons/maps.png" class="option-icon" alt=""> Maps</div>
+        <div class="option"><img src="icons/sponsor.png" class="option-icon" alt=""> Blocage des résultats sponsorisés</div>
+        <div class="option"><img src="icons/chatgpt.png" class="option-icon" alt=""> Bouton ChatGPT</div>
+        <div class="option"><img src="icons/operators.png" class="option-icon" alt=""> Opérateurs avancés</div>
+        <div class="option"><img src="icons/orthographe.png" class="option-icon" alt=""> Orthographe</div>
+        <div class="option"><img src="icons/tendances.png" class="option-icon" alt=""> Tendances</div>
+
+      </div> <!-- end optionsList -->
+    </div> <!-- end container -->
+  </body>
 </html>

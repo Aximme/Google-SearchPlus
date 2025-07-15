@@ -11,7 +11,6 @@ function createTab(id, labelText, onClick, insertBeforeImages = false) {
 
   const newItem = imagesItem.cloneNode(true);
   newItem.id = id;
-  
   const a = newItem.querySelector('a');
   a.removeAttribute('href');
   a.addEventListener('click', e => {
@@ -29,40 +28,61 @@ function createTab(id, labelText, onClick, insertBeforeImages = false) {
   }
 }
 
+function getQuery() {
+  const homeInput = document.querySelector('input#input.truncate');
+  if (homeInput) return homeInput.value || '';
+  const searchInput = document.querySelector('textarea#gLFyf, textarea#APjFqb, input[name="q"]');
+  return searchInput ? searchInput.value || '' : '';
+}
+
 function insertMapsTab() {
-  chrome.storage.local.get({ mapsEnabled: true }, data => {
-    if (!data.mapsEnabled) return;
-    createTab('maps-tab', 'Maps', () => {
-      const query = document.querySelector('input[name="q"]').value || '';
-      window.location.href = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
-    }, true);
-  });
+  createTab('maps-tab', 'Maps', () => {
+    const query = getQuery();
+    window.location.href = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
+  }, true);
 }
 
 function insertOrthoTab() {
-  chrome.storage.local.get({ orthoEnabled: true }, data => {
-    if (!data.orthoEnabled) return;
-    createTab('ortho-tab', 'Orthographe', () => {
-      const query = document.querySelector('input[name="q"]').value || '';
-      window.location.href = `https://www.reverso.net/orthographe/correcteur-francais/#text=${encodeURIComponent(query)}`;
-    });
+  createTab('ortho-tab', 'Orthographe', () => {
+    const query = getQuery();
+    window.location.href = `https://www.reverso.net/orthographe/correcteur-francais/#text=${encodeURIComponent(query)}`;
   });
 }
 
 function insertTrendsTab() {
-  chrome.storage.local.get({ trendsEnabled: true }, data => {
-    if (!data.trendsEnabled) return;
-    createTab('trends-tab', 'Tendances', () => {
-      const query = document.querySelector('input[name="q"]').value || '';
-      window.location.href = `https://trends.google.fr/trends/explore?geo=FR&q=${encodeURIComponent(query)}`;
-    });
+  createTab('trends-tab', 'Tendances', () => {
+    const query = getQuery();
+    window.location.href = `https://trends.google.fr/trends/explore?geo=FR&q=${encodeURIComponent(query)}`;
   });
+}
+
+function insertChatgptButton() {
+  const voiceBtn = document.querySelector('#voiceSearchButton, div[aria-label="Utiliser la recherche vocale"]');
+  if (!voiceBtn || document.getElementById('chatgptButton')) return;
+
+  const chatBtn = voiceBtn.cloneNode(true);
+  chatBtn.id = 'chatgptButton';
+  chatBtn.title = 'Envoyer à ChatGPT';
+  chatBtn.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = chrome.runtime.getURL('icons/chatgpt.png');
+  img.style.width = '24px';
+  img.style.height = '24px';
+  chatBtn.appendChild(img);
+  chatBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const query = getQuery();
+    chrome.runtime.sendMessage({ action: 'openChatGPT', query });
+  });
+
+  voiceBtn.parentNode.insertBefore(chatBtn, voiceBtn);
 }
 
 function insertAllTabs() {
   insertMapsTab();
   insertOrthoTab();
   insertTrendsTab();
+  insertChatgptButton();
 }
 
 const observer = new MutationObserver(insertAllTabs);
