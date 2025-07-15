@@ -37,15 +37,6 @@ h1 {
   color: var(--accent);
 }
 
-#searchParam {
-  display: block;
-  width: calc(100% - 24px);
-  margin: 0 auto 12px auto;
-  padding: 8px 12px;
-  border: 1px solid #CCC;
-  border-radius: 6px;
-}
-
 .separator {
   border: none;
   height: 1px;
