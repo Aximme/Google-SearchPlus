@@ -27,21 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const searchParam = document.getElementById('searchParam');
-  const optionEls = Array.from(document.querySelectorAll('.option'));
-  const groupEls  = Array.from(document.querySelectorAll('.category-group'));
-  searchParam.addEventListener('input', () => {
-    const q = searchParam.value.trim().toLowerCase();
-    // options individuelles
-    optionEls.forEach(opt => {
-      const txt = opt.dataset.search;
-      opt.style.display = txt.includes(q) ? 'flex' : 'none';
-    });
-    groupEls.forEach(gr => {
-      const txtGroup = gr.dataset.search;
-      const subs = Array.from(gr.querySelectorAll('.option'));
-      const anySub = subs.some(opt => opt.dataset.search.includes(q));
-      gr.style.display = (txtGroup.includes(q) || anySub) ? 'flex' : 'none';
-    });
-  });
 });
