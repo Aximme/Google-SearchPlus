@@ -1,4 +1,4 @@
-function createTab(id, labelText, onClick) {
+function createTab(id, labelText, onClick, insertBeforeImages = false) {
   const listContainer = document.querySelector('div[role="list"][style*="display:contents"]');
   if (!listContainer || document.getElementById(id)) return;
   const items = Array.from(listContainer.children);
@@ -11,7 +11,7 @@ function createTab(id, labelText, onClick) {
 
   const newItem = imagesItem.cloneNode(true);
   newItem.id = id;
-
+  
   const a = newItem.querySelector('a');
   a.removeAttribute('href');
   a.addEventListener('click', e => {
@@ -22,7 +22,11 @@ function createTab(id, labelText, onClick) {
   const label = newItem.querySelector('div.YmvwI');
   if (label) label.textContent = labelText;
 
-  listContainer.appendChild(newItem);
+  if (insertBeforeImages) {
+    listContainer.insertBefore(newItem, imagesItem);
+  } else {
+    listContainer.appendChild(newItem);
+  }
 }
 
 function insertMapsTab() {
@@ -31,7 +35,7 @@ function insertMapsTab() {
     createTab('maps-tab', 'Maps', () => {
       const query = document.querySelector('input[name="q"]').value || '';
       window.location.href = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
-    });
+    }, true);
   });
 }
 
