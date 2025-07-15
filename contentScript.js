@@ -11,7 +11,6 @@ function createTab(id, labelText, onClick, insertBeforeImages = false) {
 
   const newItem = imagesItem.cloneNode(true);
   newItem.id = id;
-
   const a = newItem.querySelector('a');
   a.removeAttribute('href');
   a.addEventListener('click', e => {
