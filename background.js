@@ -24,9 +24,8 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
           args: [query]
         });
       }
-      chrome.tabs.onUpdated.addListener(function listener(id, info, tabInfo) {
-        if (id === tabId && info.status === 'complete' &&
-            tabInfo.url && /chatgpt\.com|chat\.openai\.com/.test(tabInfo.url)) {
+      chrome.tabs.onUpdated.addListener(function listener(id, info) {
+        if (id === tabId && info.status === 'complete') {
           chrome.tabs.onUpdated.removeListener(listener);
           injectScript();
         }

@@ -5,28 +5,27 @@
   <title>Google Search+</title>
   <link rel="stylesheet" href="popup.css">
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <img src="icons/icon48.png" alt="Logo" class="logo">
-      <h1>Google Search+</h1>
-    </div>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="icons/icon48.png" alt="Logo" class="logo">
+        <h1>Google Search+</h1>
+      </div>
 
-    <hr class="separator">
+      <p>Extension active. Fonctionnalités disponibles :</p>
 
-    <div id="optionsList">
-      <div class="option"><img src="icons/maps.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleMaps"> Réactiver Maps</label></div>
-      <div class="option"><img src="icons/sponsor.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleSponsors"> Bloquer les résultats sponsorisés</label></div>
-      <div class="option"><img src="icons/chatgpt.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleChatGPT"> Bouton ChatGPT</label></div>
-      <div class="option"><img src="icons/operators.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleOperators"> Opérateurs avancés</label></div>
+      <hr class="separator">
 
-      <hr class="separator-small">
-      <h2 class="subheader">Catégories personnalisées</h2>
-      <div class="option"><img src="icons/orthographe.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleOrtho"> Orthographe</label></div>
-      <div class="option"><img src="icons/tendances.png" class="option-icon" alt=""><label><input type="checkbox" id="toggleTrends"> Tendances</label></div>
-    </div>
-  </div>
+      <div id="optionsList">
 
-  <script src="popup.js"></script>
-</body>
+        <div class="option"><img src="icons/maps.png" class="option-icon" alt=""> Maps</div>
+        <div class="option"><img src="icons/sponsor.png" class="option-icon" alt=""> Blocage des résultats sponsorisés</div>
+        <div class="option"><img src="icons/chatgpt.png" class="option-icon" alt=""> Bouton ChatGPT</div>
+        <div class="option"><img src="icons/operators.png" class="option-icon" alt=""> Opérateurs avancés</div>
+        <div class="option"><img src="icons/orthographe.png" class="option-icon" alt=""> Orthographe</div>
+        <div class="option"><img src="icons/tendances.png" class="option-icon" alt=""> Tendances</div>
+
+      </div> <!-- end optionsList -->
+    </div> <!-- end container -->
+  </body>
 </html>
