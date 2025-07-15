@@ -5,10 +5,12 @@
   "version": "1.0.0",
   "permissions": [
     "storage",
-    "scripting"
+    "scripting",
+    "tabs"
   ],
   "host_permissions": [
-    "*://*.google.com/*"
+    "*://*.google.com/*",
+    "*://chat.openai.com/*"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -29,5 +31,8 @@
       "js": ["contentScript.js"],
       "css": ["contentScript.css"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
